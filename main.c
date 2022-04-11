@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 18:15:20 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/10 02:26:14 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/11 18:12:37 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	deal_key(int key, t_data *data)
 	{
 		mlx_destroy_image(data->mlx_ptr, data->img_ptr);
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
-		mlx_destroy_display(data->mlx_ptr);
+		//mlx_destroy_display(data->mlx_ptr);
 		free(data->mlx_ptr);
 		exit(0);
 	}
