@@ -6,11 +6,12 @@
 #    By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/09 20:35:44 by jrasser           #+#    #+#              #
-#    Updated: 2022/04/11 18:57:02 by jrasser          ###   ########.fr        #
+#    Updated: 2022/04/11 22:03:13 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC				= main.c
+SRC				= main.c \
+				src/util1.c
 				
 OS				= ${shell uname}
 OBJ				= ${SRC:.c=.o}

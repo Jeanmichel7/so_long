@@ -21,6 +21,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # define PTR "0123456789abcdef"
+# define BUFFER_SIZE 100
 
 typedef struct s_list
 {
@@ -90,4 +91,18 @@ int				ft_space_flag(const char *str, int i, va_list ptr, int *z);
 int				ft_diese_flag(const char *str, int i, va_list ptr, int *z);
 int				ft_plus_flag(const char *str, int i, va_list ptr, int *z);
 
+/* GET_NEXT_LINE */
+
+int				ft_read(int fd, char *buffer);
+char			*ft_calloc_line(char *buffer, long size);
+char			*ft_check_retour(int ret, char *buffer, char *line);
+char			*ft_check_buffer_line(char *buffer);
+char			*get_next_line(int fd);
+char			*ft_strconcat(char *line, char *buffer);
+char			*update_buffer(char *buffer);
+int				ft_check_buffer_empty(char **buffer, int fd);
+int				ft_is_buffer_end_line(char *buffer);
+
 #endif
+
+

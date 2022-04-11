@@ -13,10 +13,14 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "mlx.h"
+# include <mlx.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+
 
 typedef struct s_data
 {
@@ -27,10 +31,12 @@ typedef struct s_data
 
 typedef struct s_img
 {
-	int		pixel_bits;
-	int		line_bytes;
-	int		endian;
-	char	*buffer;
+	char	*file;
+	int		width;
+	int		height;
 }	t_img;
+
+int		ft_open_map(char **argv);
+void	ft_check_arg(int argc, char **argv, int fd);
 
 #endif
