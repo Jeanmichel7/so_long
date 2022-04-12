@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 21:43:35 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 22:53:18 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 00:43:28 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ typedef struct s_data
 	t_items	enemy;
 	t_items	collect;
 	t_items	exit;
+	t_items	end;
+	t_items	lumens;
 	t_font	font;
 	int		count_move;
 	int		count_collect;
@@ -95,9 +97,13 @@ int		ft_is_move_allow(t_data *data, int key);
 void	ft_exit_game(t_data *data);
 void	ft_check_case(t_data *data);
 
+/*  IMG  */
+void	ft_init_perso(t_data *data);
+//void	ft_init_perso_left(t_data *data);
 
 /*  FONT  */
 void	ft_init_font(t_data *data);
 void	ft_display_count_move(t_data *data);
+void	ft_display_lumens(t_data *data);
 
 #endif

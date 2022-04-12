@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:16:51 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 22:56:25 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 00:44:58 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ void	ft_move_perso_right(t_data *data, int key)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 		data->sky.img.ptr_img, data->perso.pos_x, data->perso.pos_y);
 		data->perso.pos_x += TILESIZE;
+		data->perso.img.file = "img/rayman_right.png";
+		data->perso.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->perso.img.file, \
+		&data->perso.img.width, &data->perso.img.height);
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->perso.img.ptr_img, \
 		data->perso.pos_x, data->perso.pos_y);
 	}
@@ -58,6 +61,9 @@ void	ft_move_perso_left(t_data *data, int key)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 		data->sky.img.ptr_img, data->perso.pos_x, data->perso.pos_y);
 		data->perso.pos_x -= TILESIZE;
+		data->perso.img.file = "img/rayman_left.png";
+		data->perso.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->perso.img.file, \
+		&data->perso.img.width, &data->perso.img.height);
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->perso.img.ptr_img, \
 		data->perso.pos_x, data->perso.pos_y);
 	}
@@ -76,11 +82,8 @@ int	deal_key(int key, t_data *data)
 		ft_move_perso_right(data, key);
 	if (key == 0)
 		ft_move_perso_left(data, key);
-	ft_printf("%d/%d collectable\n", data->count_collect, data->count_collect_tot);
-	if (data->count_move < 2)
-		ft_printf("%d move\n", data->count_move);
-	else
-		ft_printf("%d moves\n", data->count_move);
+	ft_printf("%d/%d collectable	", data->count_collect, data->count_collect_tot);
+	ft_printf("%d move\n", data->count_move);
 	ft_display_count_move(data);
 	return (0);
 }

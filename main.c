@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 18:15:20 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 22:38:10 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 00:32:47 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	main(int argc, char **argv)
 	ft_check_map(&data);
 	ft_init_items(&data);
 	ft_create_img_map(data);
-
+	ft_display_count_move(&data);
+	ft_display_lumens(&data);
 
 	//int i = 0;
 	//while (data.map.tab[i])
@@ -39,5 +40,6 @@ int	main(int argc, char **argv)
 	mlx_loop(data.mlx_ptr);
 	if (close(fd))
 		ft_stop_prog("Impossible de ferme le fichier map/***.ter", 1);
+	free(data.map.tab);
 	return (0);
 }

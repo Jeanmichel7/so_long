@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 20:47:26 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 22:58:03 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 00:08:12 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,7 @@ void	ft_check_case(t_data *data)
 		data->count_collect++;
 		data->map.tab[posY][posX] = '0';
 	}
-	//if (data->count_collect == data->count_collect_tot)
-	//{
-	//	printf("FELICITATION\n");
-	//}
-	if (data->map.tab[posY][posX] == 'E')
-	{
-		ft_printf("Feliciation tu as gagnem t'es vraient trop fort toi dis donc\n\n");
-	}
+	if (data->map.tab[posY][posX] == 'E' && data->count_collect == data->count_collect_tot)
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
+		data->end.img.ptr_img, data->map.width * TILESIZE / 2 - 235, data->map.height * TILESIZE / 2 - 24);
 }

@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 04:44:31 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 22:38:35 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 00:43:54 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,6 @@ void	ft_init_dimension(t_data *data)
 	width_pixel = TILESIZE * (data->map.width);
 	height_pixel = TILESIZE * (data->map.height + 1);
 	data->win_ptr = mlx_new_window(data->mlx_ptr, width_pixel, height_pixel, "My game");
-}
-
-void	ft_init_perso(t_data *data)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	x = 0;
-	while (data->map.tab[y][x] != 'P' && y < data->map.height - 1)
-	{
-		x = 0;
-		while (data->map.tab[y][x] != 'P' && x < data->map.width - 1)
-			x++;
-		y++;
-	}
-	data->perso.name = "user";
-	data->perso.pos_x = x * TILESIZE;
-	data->perso.pos_y = (y - 1) * TILESIZE;
-	data->perso.img.file = "img/rayman48.png";
-	data->perso.img.width = TILESIZE;
-	data->perso.img.height = TILESIZE;
-	data->perso.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->perso.img.file, \
-	&data->perso.img.width, &data->perso.img.height);
 }
 
 void	ft_init_wall(t_data *data)
@@ -81,6 +57,23 @@ void	ft_init_exit(t_data *data)
 	data->exit.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->exit.img.file, \
 	&data->exit.img.width, &data->exit.img.height);
 }
+void	ft_init_end(t_data *data)
+{
+	data->end.img.file = "img/end.png";
+	data->end.img.width = TILESIZE;
+	data->end.img.height = TILESIZE * 10;
+	data->end.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->end.img.file, \
+	&data->end.img.width, &data->end.img.height);
+}
+
+void	ft_init_lumens(t_data *data)
+{
+	data->lumens.img.file = "img/lumens.png";
+	data->lumens.img.width = TILESIZE;
+	data->lumens.img.height = TILESIZE * 6;
+	data->lumens.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->lumens.img.file, \
+	&data->lumens.img.width, &data->lumens.img.height);
+}
 
 void	ft_init_items(t_data *data)
 {
@@ -94,4 +87,6 @@ void	ft_init_items(t_data *data)
 	ft_init_exit(data);
 	ft_init_wall(data);
 	ft_init_font(data);
+	ft_init_lumens(data);
+	ft_init_end(data);
 }
