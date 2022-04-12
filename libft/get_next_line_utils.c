@@ -3,26 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
+/*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:29:07 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/11 21:24:47 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/12 02:11:35 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strconcat(char *line, char *buffer)
 {
@@ -43,8 +31,6 @@ char	*ft_strconcat(char *line, char *buffer)
 		free(line);
 	j = 0;
 	while (buffer && buffer[j] && buffer[j] != '\n')
-		new_str[i++] = buffer[j++];
-	if (buffer[j] == '\n')
 		new_str[i++] = buffer[j++];
 	new_str[i] = '\0';
 	return (new_str);
@@ -97,8 +83,6 @@ int	ft_check_buffer_empty(char **buffer, int fd)
 	{
 		*buffer = ft_calloc_line(*buffer, BUFFER_SIZE);
 		ret = ft_read(fd, *buffer);
-		if (ret == 0 || ret == -1)
-			free(*buffer);
 	}
 	return (ret);
 }

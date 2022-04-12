@@ -6,14 +6,15 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 21:43:35 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/10 02:03:21 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/12 03:08:27 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+# define BUFFER_SIZE 100
 
-# include <mlx.h>
+# include "mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include "../libft/libft.h"
@@ -37,6 +38,8 @@ typedef struct s_img
 }	t_img;
 
 int		ft_open_map(char **argv);
-void	ft_check_arg(int argc, char **argv, int fd);
+void	ft_check_arg(int argc, char **argv);
+void	ft_stop_prog(char *msg, int error);
+char	**ft_get_map(int fd);
 
 #endif

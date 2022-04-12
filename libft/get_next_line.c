@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
+/*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 15:29:10 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/11 21:24:44 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/12 02:09:03 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,29 +73,29 @@ char	*ft_check_buffer_line(char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer;
+	static char	*buffer[1024];
 	char		*line;
 	int			ret;
 
 	if (fd < 0 || fd >= 1000)
 		return (NULL);
-	if (buffer && buffer[0] == '\0')
-		return (ft_check_retour(0, buffer, NULL));
-	ret = ft_check_buffer_empty(&buffer, fd);
+	if (buffer[fd] && buffer[fd][0] == '\0')
+		return (ft_check_retour(0, buffer[fd], NULL));
+	ret = ft_check_buffer_empty(&buffer[fd], fd);
 	if (ret == -1 || ret == 0)
 		return (NULL);
 	line = malloc(sizeof(char));
 	line[0] = '\0';
-	line = ft_strconcat(line, buffer);
-	while (!(ft_is_buffer_end_line(buffer)) && ret > 0)
+	line = ft_strconcat(line, buffer[fd]);
+	while (!(ft_is_buffer_end_line(buffer[fd])) && ret > 0)
 	{
-		buffer = ft_check_buffer_line(buffer);
-		ret = ft_read(fd, buffer);
-		line = ft_strconcat(line, buffer);
+		buffer[fd] = ft_check_buffer_line(buffer[fd]);
+		ret = ft_read(fd, buffer[fd]);
+		line = ft_strconcat(line, buffer[fd]);
 	}
 	if (ret < 1)
-		return (ft_check_retour(ret, buffer, line));
+		return (ft_check_retour(ret, buffer[fd], line));
 	else
-		buffer = update_buffer(buffer);
+		buffer[fd] = update_buffer(buffer[fd]);
 	return (line);
 }

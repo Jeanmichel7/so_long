@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+         #
+#    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/01 20:15:09 by jrasser           #+#    #+#              #
-#    Updated: 2022/04/11 21:27:17 by jrasser          ###   ########.fr        #
+#    Updated: 2022/04/12 02:33:52 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_printf.c utils_ft_printf.c ft_itoa_printf.c ft_put_ptr.c \
 		ft_putunbr_base.c ft_uitoa.c ft_litoa.c ft_flag_bonus.c \
 		ft_flag_bonus2.c ft_arg_multi.c ft_flag_dot_bonus.c \
-		get_next_line.c get_next_line_utils.c
+		get_next_line.c get_next_line_utils.c \
+		ft_lstsize.c ft_lstadd_back.c ft_lstadd_front.c \
+		ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
+		ft_lstmap.c ft_lstnew.c
 
 OBJS	= ${SRCS:.c=.o}
 
