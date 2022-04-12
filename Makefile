@@ -3,16 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
+#    By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/09 20:35:44 by jrasser           #+#    #+#              #
-#    Updated: 2022/04/12 04:50:19 by jrasser          ###   ########.fr        #
+#    Updated: 2022/04/12 22:50:54 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC				= main.c \
 				src/check_arg.c src/create_map.c src/check_map.c \
-				src/init_items.c
+				src/init_items.c src/create_img_map.c \
+				src/manage_keyboard.c src/allow_move.c \
+				src/font.c
 				
 OS				= ${shell uname}
 OBJ				= ${SRC:.c=.o}
@@ -39,7 +41,7 @@ ifeq ($(OS),Darwin)
 				$(LIBMLXMAC)
 endif
 				$(MAKE) -C ./libft
-				$(CC) $(OBJ) $(LDFLAGS) -o $(NAME) -L./libft -lft -g
+				$(CC) $(OBJ) -L./libft -lft $(LDFLAGS) -o $(NAME) -g
 
 all:			${NAME}
 	

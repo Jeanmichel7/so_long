@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 03:42:32 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 04:40:23 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/12 22:57:22 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void    ft_check_border(t_map map)
+void	ft_check_border(t_map map)
 {
 	int i;
 	int j;
@@ -49,36 +49,35 @@ void	ft_check_nb_critere(int nb_start, int nb_exit, int nb_collect)
 		connait à force... REPREND TOI !!!", 0);
 }
 
-void    ft_check_critere(t_map map)
+void	ft_check_critere(t_data *data)
 {
 	int i;
 	int j;
 	int nb_start;
 	int nb_exit;
-	int nb_collect;
 
 	nb_start = 0;
 	nb_exit = 0;
-	nb_collect = 0;
+	data->count_collect_tot = 0;
 	j = -1;
-	while (++j < map.height)
+	while (++j < data->map.height)
 	{
 		i = -1;
-		while (++i < map.width)
+		while (++i < data->map.width)
 		{
-			if (map.tab[j][i] == 'C')
-				nb_collect ++;
-			if (map.tab[j][i] == 'E')
+			if (data->map.tab[j][i] == 'C')
+				data->count_collect_tot++;
+			if (data->map.tab[j][i] == 'E')
 				nb_exit ++;
-			if (map.tab[j][i] == 'P')
+			if (data->map.tab[j][i] == 'P')
 				nb_start ++;
 		}
 	}
-	ft_check_nb_critere(nb_start, nb_exit, nb_collect);
+	ft_check_nb_critere(nb_start, nb_exit, data->count_collect_tot);
 }
 
-void	ft_check_map(t_map map)
+void	ft_check_map(t_data *data)
 {
-	ft_check_border(map);
-	ft_check_critere(map);
+	ft_check_border(data->map);
+	ft_check_critere(data);
 }

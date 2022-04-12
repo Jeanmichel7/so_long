@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 21:59:41 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 03:42:41 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/12 21:02:55 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,11 @@ void	ft_check_arg(int argc, char **argv)
 	ext = ft_split(argv[1], '.')[1];
 	if (ft_strncmp(ext, "ber", 3) || ft_strlen(ext) != 3)
 		ft_stop_prog("Extension de la carte invalide", 0);
+}
+
+void	ft_exit_game(t_data *data)
+{
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	free(data->mlx_ptr);
+	exit(0);
 }
