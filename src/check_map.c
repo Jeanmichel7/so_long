@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 03:42:32 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 04:15:22 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/12 04:19:15 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,16 @@ void    ft_check_border(t_map map)
 
 void	ft_check_nb_critere(int nb_start, int nb_exit, int nb_collect)
 {
-	if (nb_start != 1)
-		ft_stop_prog("position ou nombre de départ invalid", 0);
-	if (nb_exit != 1)
-		ft_stop_prog("position ou nombre de sorti invalid", 0);
+	if (nb_start == 0)
+		ft_stop_prog("Pas de position de départ, bravo...", 0);
+	if (nb_start > 1)
+		ft_stop_prog("Trop de position de départ!", 0);
+	if (nb_exit == 0)
+		ft_stop_prog("Pas de position de sorti, non mais sérieux...", 0);
 	if (nb_collect < 1)
-		ft_stop_prog("nombre d'élement à collecter inférieur à 1, crétin \
-		comment tu peux sortir de la carte si tu peux rien récupérer, \
+		ft_stop_prog("nombre d'élement à collecter inférieur à 1, c'est \
+		à dire 0... crétin \
+		comment tu veux sortir de la carte si tu peux rien récupérer, \
 		non mais réfléchi un peu c'est pas possible ca...\
 		t'as toujours l'excuse du \"oups j'ai missclick\" mais bon on la \
 		connait à forme... REPREND TOI !!!", 0);
