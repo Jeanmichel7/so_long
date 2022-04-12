@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 03:37:43 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 03:52:49 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/12 04:43:58 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ char	**ft_fill_map(int height, int width, t_list *list)
 
 t_map	ft_get_map(int fd)
 {
-    
 	t_map	map;
 	char	*line;
 	t_list	*list;
