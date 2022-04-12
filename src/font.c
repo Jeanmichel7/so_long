@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:37:57 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 00:43:53 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 00:58:50 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,10 @@ void	ft_display_count_move(t_data *data)
 	}
 }
 
+/*
 void	ft_display_lumens(t_data *data)
 {
 	//mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
-	//data->lumens.img.ptr_img, data->map.width - 252, data->map.height - 45);
+	//data->end.img.ptr_img, data->map.width - 252, data->map.height - 45);
 }
+*/

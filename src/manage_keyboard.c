@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:16:51 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 00:44:58 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 00:57:55 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ int	deal_key(int key, t_data *data)
 	ft_printf("%d/%d collectable	", data->count_collect, data->count_collect_tot);
 	ft_printf("%d move\n", data->count_move);
 	ft_display_count_move(data);
+	//ft_display_lumens(data);
 	return (0);
 }

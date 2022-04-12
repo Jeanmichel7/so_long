@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_perso.c                                       :+:      :+:    :+:   */
+/*   init_items_bis.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 00:37:28 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 00:43:58 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 00:50:05 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,41 @@ void	ft_init_perso(t_data *data)
 	data->perso.img.height = TILESIZE;
 	data->perso.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->perso.img.file, \
 	&data->perso.img.width, &data->perso.img.height);
+}
+
+void	ft_init_dimension(t_data *data)
+{
+	int	width_pixel;
+	int	height_pixel;
+
+	width_pixel = TILESIZE * (data->map.width);
+	height_pixel = TILESIZE * (data->map.height + 1);
+	data->win_ptr = mlx_new_window(data->mlx_ptr, width_pixel, height_pixel, "My game");
+}
+
+void	ft_init_wall(t_data *data)
+{
+	data->wall.img.file = "img/wall48.png";
+	data->wall.img.width = TILESIZE;
+	data->wall.img.height = TILESIZE;
+	data->wall.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->wall.img.file, \
+	&data->wall.img.width, &data->wall.img.height);
+}
+
+void	ft_init_sky(t_data *data)
+{
+	data->sky.img.file = "img/sky.png";
+	data->sky.img.width = TILESIZE;
+	data->sky.img.height = TILESIZE;
+	data->sky.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->sky.img.file, \
+	&data->sky.img.width, &data->sky.img.height);
+}
+
+void	ft_init_collect(t_data *data)
+{
+	data->collect.img.file = "img/lumen48.png";
+	data->collect.img.width = TILESIZE;
+	data->collect.img.height = TILESIZE;
+	data->collect.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->collect.img.file, \
+	&data->collect.img.width, &data->collect.img.height);
 }

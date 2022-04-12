@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 21:43:35 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 00:43:28 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 01:00:20 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	ft_stop_prog(char *msg, int error);
 char	**ft_fill_map(int height, int width, t_list *list);
 t_map	ft_get_map(int fd);
 void	ft_check_map(t_data *data);
-void	ft_init_items(t_data *data);
 
 void	ft_create_img_map(t_data data);
 void	ft_init_perso(t_data *data);
@@ -97,9 +96,16 @@ int		ft_is_move_allow(t_data *data, int key);
 void	ft_exit_game(t_data *data);
 void	ft_check_case(t_data *data);
 
-/*  IMG  */
+/*  INIT ITEM  */
+void	ft_init_items(t_data *data);
 void	ft_init_perso(t_data *data);
-//void	ft_init_perso_left(t_data *data);
+void	ft_init_dimension(t_data *data);
+void	ft_init_wall(t_data *data);
+void	ft_init_sky(t_data *data);
+void	ft_init_collect(t_data *data);
+void	ft_init_exit(t_data *data);
+void	ft_init_end(t_data *data);
+void	ft_init_lumens(t_data *data);
 
 /*  FONT  */
 void	ft_init_font(t_data *data);
