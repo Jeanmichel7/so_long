@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 03:42:32 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 04:19:15 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/12 04:40:23 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void    ft_check_border(t_map map)
 {
 	int i;
 	int j;
-
 
 	j = 0;
 	while (j < map.height)
@@ -42,12 +41,12 @@ void	ft_check_nb_critere(int nb_start, int nb_exit, int nb_collect)
 	if (nb_exit == 0)
 		ft_stop_prog("Pas de position de sorti, non mais sérieux...", 0);
 	if (nb_collect < 1)
-		ft_stop_prog("nombre d'élement à collecter inférieur à 1, c'est \
-		à dire 0... crétin \
-		comment tu veux sortir de la carte si tu peux rien récupérer, \
-		non mais réfléchi un peu c'est pas possible ca...\
-		t'as toujours l'excuse du \"oups j'ai missclick\" mais bon on la \
-		connait à forme... REPREND TOI !!!", 0);
+		ft_stop_prog("nombre d'élement à collecter inférieur à 1, c'est \n \
+		à dire 0... crétin, comment tu veux sortir de la carte si tu peux rien \n \
+		récupérer. \n \
+		Non mais réfléchi un peu c'est pas possible ca... \n \
+		t'as toujours l'excuse du \"oups j'ai missclick\" mais bon on l'a \n \
+		connait à force... REPREND TOI !!!", 0);
 }
 
 void    ft_check_critere(t_map map)
@@ -61,11 +60,11 @@ void    ft_check_critere(t_map map)
 	nb_start = 0;
 	nb_exit = 0;
 	nb_collect = 0;
-	j = 0;
-	while (j < map.height)
+	j = -1;
+	while (++j < map.height)
 	{
-		i = 0;
-		while (i < map.width)
+		i = -1;
+		while (++i < map.width)
 		{
 			if (map.tab[j][i] == 'C')
 				nb_collect ++;
@@ -73,9 +72,7 @@ void    ft_check_critere(t_map map)
 				nb_exit ++;
 			if (map.tab[j][i] == 'P')
 				nb_start ++;
-			i++;
 		}
-		j++;
 	}
 	ft_check_nb_critere(nb_start, nb_exit, nb_collect);
 }
