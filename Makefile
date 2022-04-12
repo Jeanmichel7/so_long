@@ -6,12 +6,12 @@
 #    By: jrasser <jrasser@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/09 20:35:44 by jrasser           #+#    #+#              #
-#    Updated: 2022/04/12 03:11:20 by jrasser          ###   ########.fr        #
+#    Updated: 2022/04/12 03:48:23 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC				= main.c \
-				src/check_get_arg.c
+				src/check_arg.c src/create_map.c src/check_map.c
 				
 OS				= ${shell uname}
 OBJ				= ${SRC:.c=.o}
