@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 04:44:31 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 21:55:23 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 23:53:03 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	ft_init_exit(t_data *data)
 	data->exit.img.file = "img/exit48.png";
 	data->exit.img.width = TILESIZE;
 	data->exit.img.height = TILESIZE;
-	data->exit.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->exit.img.file, \
-	&data->exit.img.width, &data->exit.img.height);
+	data->exit.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, \
+	data->exit.img.file, &data->exit.img.width, &data->exit.img.height);
 }
 
 void	ft_init_end(t_data *data)
@@ -40,8 +40,8 @@ void	ft_init_end(t_data *data)
 	data->end.img.file = "img/end.png";
 	data->end.img.width = TILESIZE * 5;
 	data->end.img.height = TILESIZE;
-	data->end.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->end.img.file, \
-	&data->end.img.width, &data->end.img.height);
+	data->end.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, \
+	data->end.img.file, &data->end.img.width, &data->end.img.height);
 }
 
 void	ft_init_enemy(t_data *data)
@@ -49,18 +49,21 @@ void	ft_init_enemy(t_data *data)
 	data->enemy.enemy1.img.file = "img/enemy1.png";
 	data->enemy.enemy1.img.width = TILESIZE;
 	data->enemy.enemy1.img.height = TILESIZE;
-	data->enemy.enemy1.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->enemy.enemy1.img.file, \
-	&data->enemy.enemy1.img.width, &data->enemy.enemy1.img.height);
+	data->enemy.enemy1.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, \
+	data->enemy.enemy1.img.file, &data->enemy.enemy1.img.width, \
+	&data->enemy.enemy1.img.height);
 	data->enemy.enemy2.img.file = "img/enemy1.png";
 	data->enemy.enemy2.img.width = TILESIZE;
 	data->enemy.enemy2.img.height = TILESIZE;
-	data->enemy.enemy2.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->enemy.enemy2.img.file, \
-	&data->enemy.enemy2.img.width, &data->enemy.enemy2.img.height);
+	data->enemy.enemy2.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, \
+	data->enemy.enemy2.img.file, &data->enemy.enemy2.img.width, \
+	&data->enemy.enemy2.img.height);
 	data->enemy.enemy3.img.file = "img/enemy1.png";
 	data->enemy.enemy3.img.width = TILESIZE;
 	data->enemy.enemy3.img.height = TILESIZE;
-	data->enemy.enemy3.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->enemy.enemy3.img.file, \
-	&data->enemy.enemy3.img.width, &data->enemy.enemy3.img.height);
+	data->enemy.enemy3.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, \
+	data->enemy.enemy3.img.file, &data->enemy.enemy3.img.width, \
+	&data->enemy.enemy3.img.height);
 }
 
 void	ft_init_items(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 21:43:35 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 21:55:03 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 23:51:35 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,5 +125,11 @@ void	ft_init_enemy(t_data *data);
 void	ft_init_font(t_data *data);
 void	ft_display_count_move(t_data *data);
 void	ft_display_lumens(t_data *data);
+
+void	ft_init_font_0_3(t_data *data);
+void	ft_init_font_4_7(t_data *data);
+void	ft_init_font_8_9(t_data *data);
+void	ft_display_count_move_0_4(t_data *data, char c, int pos_x, int pos_y);
+void	ft_display_count_move_5_9(t_data *data, char c, int pos_x, int pos_y);
 
 #endif

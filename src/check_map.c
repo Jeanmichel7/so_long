@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 03:42:32 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 23:39:32 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 23:14:59 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_check_border(t_map map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	j = 0;
 	while (j < map.height)
@@ -51,10 +51,10 @@ void	ft_check_nb_critere(int nb_start, int nb_exit, int nb_collect)
 
 void	ft_check_critere(t_data *data)
 {
-	int i;
-	int j;
-	int nb_start;
-	int nb_exit;
+	int	i;
+	int	j;
+	int	nb_start;
+	int	nb_exit;
 
 	nb_start = 0;
 	nb_exit = 0;

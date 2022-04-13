@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 18:15:20 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 21:15:10 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 23:11:54 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
+/*
 void	ft_display_map(t_data *data)
 {
 	int i = 0;
+	
 	while (data->map.tab[i])
 	{
 		printf("line %d: '%s'\n", i, data->map.tab[i]);
 		i++;
 	}
 }
-
-
-
+*/
