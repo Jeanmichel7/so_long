@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:37:57 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 22:01:42 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 22:06:37 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,7 @@ void	ft_display_lumens(t_data *data)
 	char	*str_count;
 	char	*str_count_tot;
 	int		i;
+	int		j;
 
 	str_count = ft_itoa(data->count_collect);
 	str_count_tot = ft_itoa(data->count_collect_tot);
@@ -159,13 +160,19 @@ void	ft_display_lumens(t_data *data)
 		ft_display_count_move_5_9(data, str_count[i], i * TILESIZE, TILESIZE * (data->map.height - 1));
 		i++;
 	}
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+	data->wall.img.ptr_img, i * TILESIZE, TILESIZE * (data->map.height - 1));
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 	data->font.slash.img.ptr_img, i * TILESIZE, TILESIZE * (data->map.height - 1));
-	i = 0;
-	while (str_count_tot[i])
+	i++;
+	j = 0;
+	while (str_count_tot[j])
 	{
-		ft_display_count_move_0_4(data, str_count_tot[i], i * (TILESIZE) + 2 * TILESIZE, TILESIZE * (data->map.height - 1));
-		ft_display_count_move_5_9(data, str_count_tot[i], i * (TILESIZE) + 2 * TILESIZE, TILESIZE * (data->map.height - 1));
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+		data->wall.img.ptr_img, i * TILESIZE, TILESIZE * (data->map.height - 1));
+		ft_display_count_move_0_4(data, str_count_tot[j], i * TILESIZE, TILESIZE * (data->map.height - 1));
+		ft_display_count_move_5_9(data, str_count_tot[j], i * TILESIZE, TILESIZE * (data->map.height - 1));
 		i++;
+		j++;
 	}
 }
