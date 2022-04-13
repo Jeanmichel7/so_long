@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 22:37:57 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 22:06:37 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 22:22:32 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,25 @@ void	ft_display_count_move(t_data *data)
 	}
 }
 
+void	ft_display_lumens_count(t_data *data, int *i, char *str_count)
+{
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+	data->wall.img.ptr_img, *i * TILESIZE, TILESIZE * (data->map.height - 1));
+	ft_display_count_move_0_4(data, str_count[*i], *i * TILESIZE, TILESIZE * (data->map.height - 1));
+	ft_display_count_move_5_9(data, str_count[*i], *i * TILESIZE, TILESIZE * (data->map.height - 1));
+	*i += 1;
+}
+
+void	ft_display_lumens_count_tot(t_data *data, int *i, int *j, char *str_count_tot)
+{
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+	data->wall.img.ptr_img, *i * TILESIZE, TILESIZE * (data->map.height - 1));
+	ft_display_count_move_0_4(data, str_count_tot[*j], *i * TILESIZE, TILESIZE * (data->map.height - 1));
+	ft_display_count_move_5_9(data, str_count_tot[*j], *i * TILESIZE, TILESIZE * (data->map.height - 1));
+	*i += 1;
+	*j += 1;
+}
+
 void	ft_display_lumens(t_data *data)
 {
 	char	*str_count;
@@ -150,16 +169,9 @@ void	ft_display_lumens(t_data *data)
 
 	str_count = ft_itoa(data->count_collect);
 	str_count_tot = ft_itoa(data->count_collect_tot);
-	ft_printf("%s %d\n", str_count_tot, data->count_collect_tot);
 	i = 0;
 	while (str_count[i])
-	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-		data->wall.img.ptr_img, i * TILESIZE, TILESIZE * (data->map.height - 1));
-		ft_display_count_move_0_4(data, str_count[i], i * TILESIZE, TILESIZE * (data->map.height - 1));
-		ft_display_count_move_5_9(data, str_count[i], i * TILESIZE, TILESIZE * (data->map.height - 1));
-		i++;
-	}
+		ft_display_lumens_count(data, &i, str_count);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 	data->wall.img.ptr_img, i * TILESIZE, TILESIZE * (data->map.height - 1));
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
@@ -167,12 +179,5 @@ void	ft_display_lumens(t_data *data)
 	i++;
 	j = 0;
 	while (str_count_tot[j])
-	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-		data->wall.img.ptr_img, i * TILESIZE, TILESIZE * (data->map.height - 1));
-		ft_display_count_move_0_4(data, str_count_tot[j], i * TILESIZE, TILESIZE * (data->map.height - 1));
-		ft_display_count_move_5_9(data, str_count_tot[j], i * TILESIZE, TILESIZE * (data->map.height - 1));
-		i++;
-		j++;
-	}
+		ft_display_lumens_count_tot(data, &i, &j, str_count_tot);
 }

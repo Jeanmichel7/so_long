@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:16:51 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 21:10:07 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 22:33:13 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,15 @@ void	ft_move_perso_right(t_data *data, int key)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 		data->sky.img.ptr_img, data->perso.pos_x, data->perso.pos_y);
 		data->perso.pos_x += TILESIZE;
-		data->perso.img.file = "img/rayman_right.png";
-		data->perso.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->perso.img.file, \
-		&data->perso.img.width, &data->perso.img.height);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->perso.img.ptr_img, \
-		data->perso.pos_x, data->perso.pos_y);
 	}
+	else
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
+		data->sky.img.ptr_img, data->perso.pos_x, data->perso.pos_y);
+	data->perso.img.file = "img/rayman_right.png";
+	data->perso.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->perso.img.file, \
+	&data->perso.img.width, &data->perso.img.height);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->perso.img.ptr_img, \
+	data->perso.pos_x, data->perso.pos_y);
 	ft_check_case(data);
 }
 
@@ -61,12 +64,15 @@ void	ft_move_perso_left(t_data *data, int key)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
 		data->sky.img.ptr_img, data->perso.pos_x, data->perso.pos_y);
 		data->perso.pos_x -= TILESIZE;
-		data->perso.img.file = "img/rayman_left.png";
-		data->perso.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->perso.img.file, \
-		&data->perso.img.width, &data->perso.img.height);
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->perso.img.ptr_img, \
-		data->perso.pos_x, data->perso.pos_y);
 	}
+	else
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, \
+		data->sky.img.ptr_img, data->perso.pos_x, data->perso.pos_y);
+	data->perso.img.file = "img/rayman_left.png";
+	data->perso.img.ptr_img = mlx_png_file_to_image(data->mlx_ptr, data->perso.img.file, \
+	&data->perso.img.width, &data->perso.img.height);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->perso.img.ptr_img, \
+	data->perso.pos_x, data->perso.pos_y);
 	ft_check_case(data);
 }
 
