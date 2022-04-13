@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 00:37:28 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 00:50:05 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 21:49:38 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_init_dimension(t_data *data)
 	int	height_pixel;
 
 	width_pixel = TILESIZE * (data->map.width);
-	height_pixel = TILESIZE * (data->map.height + 1);
+	height_pixel = TILESIZE * (data->map.height);
 	data->win_ptr = mlx_new_window(data->mlx_ptr, width_pixel, height_pixel, "My game");
 }
 

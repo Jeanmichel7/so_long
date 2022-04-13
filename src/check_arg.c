@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 21:59:41 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/12 21:02:55 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 15:34:55 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ void	ft_check_arg(int argc, char **argv)
 		ft_stop_prog("Extension de la carte invalide", 0);
 }
 
-void	ft_exit_game(t_data *data)
+int	ft_exit_game(t_data *data)
 {
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	free(data->mlx_ptr);
 	exit(0);
+	return (0);
 }

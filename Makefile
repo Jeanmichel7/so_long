@@ -6,7 +6,7 @@
 #    By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/09 20:35:44 by jrasser           #+#    #+#              #
-#    Updated: 2022/04/13 00:47:08 by jrasser          ###   ########.fr        #
+#    Updated: 2022/04/13 15:57:17 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,9 @@ endif
 				$(CC) $(OBJ) -L./libft -lft $(LDFLAGS) -o $(NAME) -g
 
 all:			${NAME}
-	
+
+bonus:			re
+
 clean:			
 				${RM} ${OBJ}
 	

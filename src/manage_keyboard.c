@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:16:51 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 00:57:55 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 21:10:07 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,20 @@ int	deal_key(int key, t_data *data)
 {
 	if (key == 65307 || key == 53)
 		ft_exit_game(data);
-	if (key == 13)
-		ft_move_perso_up(data, key);
-	if (key == 1)
-		ft_move_perso_down(data, key);
-	if (key == 2)
-		ft_move_perso_right(data, key);
-	if (key == 0)
-		ft_move_perso_left(data, key);
-	ft_printf("%d/%d collectable	", data->count_collect, data->count_collect_tot);
-	ft_printf("%d move\n", data->count_move);
-	ft_display_count_move(data);
-	//ft_display_lumens(data);
+	if (data->is_end == 0)
+	{
+		if (key == 13)
+			ft_move_perso_up(data, key);
+		if (key == 1)
+			ft_move_perso_down(data, key);
+		if (key == 2)
+			ft_move_perso_right(data, key);
+		if (key == 0)
+			ft_move_perso_left(data, key);
+		ft_printf("%d/%d collectable	", data->count_collect, data->count_collect_tot);
+		ft_printf("%d move\n", data->count_move);
+		ft_display_count_move(data);
+		ft_display_lumens(data);
+	}
 	return (0);
 }

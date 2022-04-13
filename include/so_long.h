@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 21:43:35 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 01:00:20 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/13 21:55:03 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,16 @@ typedef struct s_font
 	t_items	seven;
 	t_items	eight;
 	t_items	nine;
+	t_items	lose;
+	t_items	slash;
 }	t_font;
+
+typedef struct s_enemy
+{
+	t_items	enemy1;
+	t_items	enemy2;
+	t_items	enemy3;
+}	t_enemy;
 
 typedef struct s_data
 {
@@ -68,15 +77,16 @@ typedef struct s_data
 	t_items	wall;
 	t_items	sky;
 	t_items	perso;
-	t_items	enemy;
 	t_items	collect;
 	t_items	exit;
 	t_items	end;
 	t_items	lumens;
 	t_font	font;
+	t_enemy	enemy;
 	int		count_move;
 	int		count_collect;
 	int		count_collect_tot;
+	int		is_end;
 }	t_data;
 
 int		ft_open_map(char **argv);
@@ -86,14 +96,17 @@ char	**ft_fill_map(int height, int width, t_list *list);
 t_map	ft_get_map(int fd);
 void	ft_check_map(t_data *data);
 
-void	ft_create_img_map(t_data data);
+void	ft_display_map(t_data *data);
+
+void	ft_create_img_map(t_data *data);
+void	ft_generate_enemy(t_data *data);
 void	ft_init_perso(t_data *data);
 
 /*  EVENMENT KEYBOARD  */
 
 int		deal_key(int key, t_data *data);
 int		ft_is_move_allow(t_data *data, int key);
-void	ft_exit_game(t_data *data);
+int		ft_exit_game(t_data *data);
 void	ft_check_case(t_data *data);
 
 /*  INIT ITEM  */
@@ -106,6 +119,7 @@ void	ft_init_collect(t_data *data);
 void	ft_init_exit(t_data *data);
 void	ft_init_end(t_data *data);
 void	ft_init_lumens(t_data *data);
+void	ft_init_enemy(t_data *data);
 
 /*  FONT  */
 void	ft_init_font(t_data *data);
