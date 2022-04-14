@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 03:42:32 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 23:14:59 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/14 16:42:54 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,30 @@ void	ft_check_critere(t_data *data)
 	ft_check_nb_critere(nb_start, nb_exit, data->count_collect_tot);
 }
 
+void	ft_check_valid(t_data *data)
+{
+	int	i;
+	int	j;
+
+	j = -1;
+	while (++j < data->map.height)
+	{
+		i = -1;
+		while (++i < data->map.width)
+		{
+			if (data->map.tab[j][i] != '0' \
+			&& data->map.tab[j][i] != '1' \
+			&& data->map.tab[j][i] != 'C' \
+			&& data->map.tab[j][i] != 'E' \
+			&& data->map.tab[j][i] != 'P')
+			ft_stop_prog("mauvais caractere", 0);
+		}
+	}
+}
+
 void	ft_check_map(t_data *data)
 {
 	ft_check_border(data->map);
 	ft_check_critere(data);
+	ft_check_valid(data);
 }
