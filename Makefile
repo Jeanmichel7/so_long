@@ -6,7 +6,7 @@
 #    By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/09 20:35:44 by jrasser           #+#    #+#              #
-#    Updated: 2022/04/13 23:43:47 by jrasser          ###   ########.fr        #
+#    Updated: 2022/04/14 16:28:32 by jrasser          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LIBMLXMAC		= make -C mlx_mac/
 NAME			= so_long
 CC				= gcc
 RM				= rm -f
-CFLAGS			= -Wall -Wextra
+CFLAGS			= -Wall -Wextra -Werror
 CPPFLAGS		= -I./include/ -I./libft/
 
 ifeq ($(OS),Linux)
