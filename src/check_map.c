@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 03:42:32 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/14 16:42:54 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/18 22:15:03 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	ft_check_valid(t_data *data)
 			&& data->map.tab[j][i] != 'C' \
 			&& data->map.tab[j][i] != 'E' \
 			&& data->map.tab[j][i] != 'P')
-			ft_stop_prog("mauvais caractere", 0);
+				ft_stop_prog("mauvais caractere", 0);
 		}
 	}
 }

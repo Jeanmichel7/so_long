@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 21:59:41 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 15:34:55 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/18 22:14:03 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_check_arg(int argc, char **argv)
 	if (argc != 2)
 		ft_stop_prog("Nombre d'arguments invalide", 0);
 	ext = ft_split(argv[1], '.')[1];
-	if (ft_strncmp(ext, "ber", 3) || ft_strlen(ext) != 3)
+	if (ext && (ft_strncmp(ext, "ber", 3) || ft_strlen(ext) != 3))
 		ft_stop_prog("Extension de la carte invalide", 0);
 }
 

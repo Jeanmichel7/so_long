@@ -6,7 +6,7 @@
 /*   By: jrasser <jrasser@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 00:37:28 by jrasser           #+#    #+#             */
-/*   Updated: 2022/04/13 23:53:54 by jrasser          ###   ########.fr       */
+/*   Updated: 2022/04/18 21:45:26 by jrasser          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,20 @@ void	ft_init_perso(t_data *data)
 
 	y = 0;
 	x = 0;
-	while (data->map.tab[y][x] != 'P' && y < data->map.height - 1)
+	while (y < data->map.height - 1)
 	{
 		x = 0;
-		while (data->map.tab[y][x] != 'P' && x < data->map.width - 1)
+		while (x < data->map.width - 1)
+		{
+			if (data->map.tab[y][x] == 'P')
+			{
+				data->perso.pos_x = x * TILESIZE;
+				data->perso.pos_y = y * TILESIZE;
+			}
 			x++;
+		}
 		y++;
 	}
-	data->perso.name = "user";
-	data->perso.pos_x = x * TILESIZE;
-	data->perso.pos_y = (y - 1) * TILESIZE;
 	data->perso.img.file = "img/rayman_right.png";
 	data->perso.img.width = TILESIZE;
 	data->perso.img.height = TILESIZE;
